@@ -1,0 +1,16 @@
+name: Build
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+    - run: gem install ocra
+    - run: ocra risk_profiler_gui.rb --windows --no-enc --gem-full
+    - uses: actions/upload-artifact@v3
+      with:
+        name: exe
+        path: "*.exe"
