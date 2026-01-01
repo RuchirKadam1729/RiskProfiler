@@ -1,4 +1,3 @@
-cat > risk_profiler_gui.rb << 'EOF'
 require 'webrick'
 require 'csv'
 
